@@ -43,4 +43,5 @@ button {
 button:hover {
     box-shadow: 1px 2px 5px 1px silver;
     padding: 9px 29px;
+    cursor: pointer;
 }
