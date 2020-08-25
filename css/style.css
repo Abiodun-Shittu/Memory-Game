@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* Homepage Section */
+
+.home-screen {
+    padding-top: 120px;
+    text-align: center;
+    height: 650px;
+    background: linear-gradient(160deg, #5acea3, #5ff0fa, #e6f750);
+}
+
+.home-text h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    font-weight: 480;
+}
+
+.home-text h2 {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: large;
+}
+
+.home-play {
+    margin-top: 50px;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    background: rgb(70, 245, 70);
+    padding: 10px 30px;
+    font-size: large;
+    box-shadow: 2px 5px 10px 2px silver;
+}
+
+button:hover {
+    box-shadow: 1px 2px 5px 1px silver;
+    padding: 9px 29px;
+}
