@@ -11,7 +11,7 @@
 .home-screen {
     padding-top: 120px;
     text-align: center;
-    height: 650px;
+    height: 100vh;
     background: linear-gradient(160deg, #5acea3, #5ff0fa, #e6f750);
 }
 
