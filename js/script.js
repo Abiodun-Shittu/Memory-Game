@@ -62,19 +62,24 @@ function flipCard() {
 const timeCount = document.querySelector(".time-read");
 let minutes = 0;
 let seconds = 0;
+let miliSeconds = 0;
 let timeStart = false;
 
 function timer() {
     let time = setInterval(function() {
         seconds++;
         if (seconds < 10) {
-            seconds = `0${seconds}`;
+            miliSeconds = "0";
+        }
+        if (seconds >= 10) {
+            miliSeconds = "";
         }
         if (seconds >= 60) {
             minutes++;
-            seconds = "00";
+            miliSeconds = "0";
+            seconds = "0";
         }
-        timeCount.innerHTML = minutes + " : " + seconds;
+        timeCount.innerText = minutes + " : " + miliSeconds + seconds;
     }, 1000);
 }
 
@@ -84,5 +89,5 @@ let moves = 0;
 
 function movesCounter() {
     moves++;
-    movesCount.innerHTML = moves;
+    movesCount.innerText = moves;
 }
