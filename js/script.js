@@ -92,6 +92,24 @@ let moves = 0;
 function movesCounter() {
     moves++;
     movesCount.innerText = moves;
+    starRating();
+}
+
+// Setting rates based on number of moves
+const stars = document.querySelectorAll('.rating-icon');
+let rating = 3;
+
+function starRating() {
+    if (moves === 20) {
+        rating--;
+        stars[2].classList.add('remove-star');
+    } else if (moves === 30) {
+        rating--;
+        stars[1].classList.add('remove-star');
+    } else if (moves === 40) {
+        rating--;
+        stars[0].classList.add('remove-star');
+    }
 }
 
 // Matching of cards
