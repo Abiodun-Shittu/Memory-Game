@@ -118,6 +118,7 @@ header {
     transition: transform 1s;
     position: relative;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
 
 .card-image, .card-front {
@@ -139,6 +140,15 @@ header {
 
 .flip {
     transform: rotateY(180deg);  
+    pointer-events: none; 
+}
+
+.stop-clicks{
+    pointer-events: none;
+}
+
+.matched{
+    background-color: rgb(5, 190, 250);
 }
 
 /* Victory Section*/

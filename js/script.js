@@ -57,6 +57,8 @@ function flipCard() {
     }
     //moves count after each click on card
     movesCounter();
+    // push the cards clicked into an empty array and check for match
+    checkForMatch(this);
 }
 // initialize time count
 const timeCount = document.querySelector(".time-read");
@@ -90,4 +92,30 @@ let moves = 0;
 function movesCounter() {
     moves++;
     movesCount.innerText = moves;
+}
+
+// Matching of cards
+let openedCards = [];
+let matchedCards = [];
+
+function checkForMatch(card) {
+    openedCards.push(card);
+    if (openedCards.length === 2){
+        
+        if (openedCards[0].firstElementChild.src === openedCards[1].firstElementChild.src) {
+            setTimeout(function() {
+                  openedCards[0].firstElementChild.classList.add("matched");
+                  openedCards[1].firstElementChild.classList.add("matched");
+                  matchedCards.push(...openedCards);
+                  openedCards = [];
+               }, 700);
+           }
+        else {
+               setTimeout(function() {
+                   openedCards[0].classList.remove("flip");
+                   openedCards[1].classList.remove("flip");
+                   openedCards = [];
+               }, 900);
+           }
+    }
 }
