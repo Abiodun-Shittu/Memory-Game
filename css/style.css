@@ -151,6 +151,10 @@ header {
     background-color: rgb(5, 190, 250);
 }
 
+.remove-star {
+    visibility: hidden;
+}
+
 /* Victory Section*/
 
 .victory-screen {
