@@ -66,9 +66,10 @@ let minutes = 0;
 let seconds = 0;
 let miliSeconds = 0;
 let timeStart = false;
+let time = 0;
 
 function timer() {
-    let time = setInterval(function() {
+    time = setInterval(function() {
         seconds++;
         if (seconds < 10) {
             miliSeconds = "0";
@@ -137,3 +138,30 @@ function checkForMatch(card) {
            }
     }
 }
+
+// Resetting the game
+const resetGame = document.querySelector(".refresh");
+
+resetGame.addEventListener("click", function() {
+    // reset moves
+    moves = 0;
+    movesCount.innerText= moves;
+    
+    //reset stars
+    stars[2].classList.remove('remove-star');
+    stars[1].classList.remove('remove-star');
+    stars[0].classList.remove('remove-star');
+    
+    //reset time
+    miliSeconds = 0;
+    seconds = 0;
+    minutes = 0; 
+    timeCount.innerText = minutes + " : " + miliSeconds + seconds;
+    timeStart = false;
+    clearInterval(time);
+
+    //reset cards
+    openedCards = [];
+    matchedCards = [];
+    
+});
