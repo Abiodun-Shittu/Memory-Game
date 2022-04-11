@@ -137,6 +137,7 @@ function checkForMatch(card) {
                }, 900);
            }
     }
+    victory();
 }
 
 // Resetting the game
@@ -165,3 +166,18 @@ resetGame.addEventListener("click", function() {
     matchedCards = [];
     
 });
+
+//victory Screen
+const gradeMoves = document.querySelector(".moves-result");
+const gradeTime = document.querySelector(".time-result");
+const gradeStars = document.querySelector(".stars-result");
+function victory() {
+ if (matchedCards.length === 2) {
+    clearInterval(time);
+    gameSCreen.classList.add("hidden");
+    victoryScreen.classList.remove("hidden");
+    gradeMoves.innerHTML = movesCount.innerHTML;
+    gradeTime.innerHTML = timeCount.innerHTML;
+    gradeStars.innerHTML = stars.innerHTML;
+    }
+}
