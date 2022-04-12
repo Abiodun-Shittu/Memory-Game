@@ -163,5 +163,8 @@ resetGame.addEventListener("click", function() {
     //reset cards
     openedCards = [];
     matchedCards = [];
-    
+    let cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("flip");
+    }
 });
