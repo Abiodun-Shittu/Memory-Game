@@ -171,6 +171,7 @@ resetGame.addEventListener("click", function() {
 const gradeMoves = document.querySelector(".moves-result");
 const gradeTime = document.querySelector(".time-result");
 const gradeStars = document.querySelector(".stars-result");
+const gameRating = document.querySelector(".game-rating");
 function victory() {
  if (matchedCards.length === 2) {
     clearInterval(time);
@@ -178,6 +179,6 @@ function victory() {
     victoryScreen.classList.remove("hidden");
     gradeMoves.innerHTML = movesCount.innerHTML;
     gradeTime.innerHTML = timeCount.innerHTML;
-    gradeStars.innerHTML = stars.innerHTML;
+    gradeStars.innerHTML = gameRating.innerHTML;
     }
 }
