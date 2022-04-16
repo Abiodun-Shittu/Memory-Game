@@ -182,3 +182,9 @@ function victory() {
     gradeStars.innerHTML = gameRating.innerHTML;
     }
 }
+
+//To Replay the game after winning
+const replayGame = document.querySelector(".replay-button");
+replayGame.addEventListener("click", function() {
+    location.reload();
+})
