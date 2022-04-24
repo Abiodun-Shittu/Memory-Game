@@ -166,5 +166,6 @@ resetGame.addEventListener("click", function() {
     let cards = document.querySelectorAll(".card");
     for (let i = 0; i < cards.length; i++) {
         cards[i].classList.remove("flip");
+        cards[i].firstElementChild.classList.remove("matched");
     }
 });
