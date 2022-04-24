@@ -164,7 +164,11 @@ resetGame.addEventListener("click", function() {
     //reset cards
     openedCards = [];
     matchedCards = [];
-
+    let cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("flip");
+        cards[i].firstElementChild.classList.remove("matched");
+    }
 });
 
 //victory Screen
@@ -181,11 +185,11 @@ function victory() {
         gradeMoves.innerHTML = movesCount.innerHTML;
         gradeTime.innerHTML = timeCount.innerHTML;
         gradeStars.innerHTML = gameRating.innerHTML;
-    }
-}
+    };
+};
 
 //To Replay the game after winning
 const replayGame = document.querySelector(".replay-button");
 replayGame.addEventListener("click", function() {
     location.reload();
-})
+});
