@@ -38,14 +38,14 @@ const gameGrid = uniqueImages
     .sort(() => 0.5 - Math.random());
 
 const cardImages = document.querySelectorAll(".card-image");
-gameGrid.forEach((imgStr, index)=> {
+gameGrid.forEach((imgStr, index) => {
     cardImages[index].setAttribute("src", imgStr);
 })
 
 // flip card and display images
 const cards = document.querySelectorAll(".card");
 for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("click", flipCard)  
+    cards[i].addEventListener("click", flipCard)
 }
 
 function flipCard() {
@@ -119,24 +119,25 @@ let matchedCards = [];
 
 function checkForMatch(card) {
     openedCards.push(card);
-    if (openedCards.length === 2){
-        
+    if (openedCards.length === 2) {
+
         if (openedCards[0].firstElementChild.src === openedCards[1].firstElementChild.src) {
             setTimeout(function() {
-                  openedCards[0].firstElementChild.classList.add("matched");
-                  openedCards[1].firstElementChild.classList.add("matched");
-                  matchedCards.push(...openedCards);
-                  openedCards = [];
-               }, 700);
-           }
-        else {
-               setTimeout(function() {
-                   openedCards[0].classList.remove("flip");
-                   openedCards[1].classList.remove("flip");
-                   openedCards = [];
-               }, 900);
-           }
+                openedCards[0].firstElementChild.classList.add("matched");
+                openedCards[1].firstElementChild.classList.add("matched");
+                matchedCards.push(...openedCards);
+                victory();
+                openedCards = [];
+            }, 700);
+        } else {
+            setTimeout(function() {
+                openedCards[0].classList.remove("flip");
+                openedCards[1].classList.remove("flip");
+                openedCards = [];
+            }, 900);
+        }
     }
+
 }
 
 // Resetting the game
@@ -145,17 +146,17 @@ const resetGame = document.querySelector(".refresh");
 resetGame.addEventListener("click", function() {
     // reset moves
     moves = 0;
-    movesCount.innerText= moves;
-    
+    movesCount.innerText = moves;
+
     //reset stars
     stars[2].classList.remove('remove-star');
     stars[1].classList.remove('remove-star');
     stars[0].classList.remove('remove-star');
-    
+
     //reset time
     miliSeconds = 0;
     seconds = 0;
-    minutes = 0; 
+    minutes = 0;
     timeCount.innerText = minutes + " : " + miliSeconds + seconds;
     timeStart = false;
     clearInterval(time);
@@ -168,4 +169,27 @@ resetGame.addEventListener("click", function() {
         cards[i].classList.remove("flip");
         cards[i].firstElementChild.classList.remove("matched");
     }
+});
+
+//victory Screen
+const gradeMoves = document.querySelector(".moves-result");
+const gradeTime = document.querySelector(".time-result");
+const gradeStars = document.querySelector(".stars-result");
+const gameRating = document.querySelector(".game-rating");
+
+function victory() {
+    if (matchedCards.length === 16) {
+        clearInterval(time);
+        gameSCreen.classList.add("hidden");
+        victoryScreen.classList.remove("hidden");
+        gradeMoves.innerHTML = movesCount.innerHTML;
+        gradeTime.innerHTML = timeCount.innerHTML;
+        gradeStars.innerHTML = gameRating.innerHTML;
+    };
+};
+
+//To Replay the game after winning
+const replayGame = document.querySelector(".replay-button");
+replayGame.addEventListener("click", function() {
+    location.reload();
 });
