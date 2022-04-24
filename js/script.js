@@ -66,9 +66,10 @@ let minutes = 0;
 let seconds = 0;
 let miliSeconds = 0;
 let timeStart = false;
+let time = 0;
 
 function timer() {
-    let time = setInterval(function() {
+    time = setInterval(function() {
         seconds++;
         if (seconds < 10) {
             miliSeconds = "0";
@@ -125,6 +126,7 @@ function checkForMatch(card) {
                 openedCards[0].firstElementChild.classList.add("matched");
                 openedCards[1].firstElementChild.classList.add("matched");
                 matchedCards.push(...openedCards);
+                victory();
                 openedCards = [];
             }, 500);
         } else {
@@ -135,4 +137,59 @@ function checkForMatch(card) {
             }, 700);
         }
     }
+
 }
+
+// Resetting the game
+const resetGame = document.querySelector(".refresh");
+
+resetGame.addEventListener("click", function() {
+    // reset moves
+    moves = 0;
+    movesCount.innerText = moves;
+
+    //reset stars
+    stars[2].classList.remove('remove-star');
+    stars[1].classList.remove('remove-star');
+    stars[0].classList.remove('remove-star');
+
+    //reset time
+    miliSeconds = 0;
+    seconds = 0;
+    minutes = 0;
+    timeCount.innerText = minutes + " : " + miliSeconds + seconds;
+    timeStart = false;
+    clearInterval(time);
+
+    //reset cards
+    openedCards = [];
+    matchedCards = [];
+    let cards = document.querySelectorAll(".card");
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("flip");
+        cards[i].firstElementChild.classList.remove("matched");
+    }
+});
+
+//victory Screen
+const gradeMoves = document.querySelector(".moves-result");
+const gradeTime = document.querySelector(".time-result");
+const gradeStars = document.querySelector(".stars-result");
+const gameRating = document.querySelector(".game-rating");
+
+function victory() {
+    if (matchedCards.length === 16) {
+        clearInterval(time);
+        gameSCreen.classList.add("hidden");
+        victoryScreen.classList.remove("hidden");
+        gradeMoves.innerHTML = movesCount.innerHTML;
+        gradeTime.innerHTML = timeCount.innerHTML;
+        gradeStars.innerHTML = gameRating.innerHTML;
+    };
+};
+
+//To Replay the game after winning
+const replayGame = document.querySelector(".replay-button");
+replayGame.addEventListener("click", function() {
+    location.reload();
+});
