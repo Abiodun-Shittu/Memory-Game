@@ -38,14 +38,14 @@ const gameGrid = uniqueImages
     .sort(() => 0.5 - Math.random());
 
 const cardImages = document.querySelectorAll(".card-image");
-gameGrid.forEach((imgStr, index)=> {
+gameGrid.forEach((imgStr, index) => {
     cardImages[index].setAttribute("src", imgStr);
 })
 
 // flip card and display images
 const cards = document.querySelectorAll(".card");
 for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("click", flipCard)  
+    cards[i].addEventListener("click", flipCard)
 }
 
 function flipCard() {
@@ -118,22 +118,21 @@ let matchedCards = [];
 
 function checkForMatch(card) {
     openedCards.push(card);
-    if (openedCards.length === 2){
-        
+    if (openedCards.length === 2) {
+
         if (openedCards[0].firstElementChild.src === openedCards[1].firstElementChild.src) {
             setTimeout(function() {
-                  openedCards[0].firstElementChild.classList.add("matched");
-                  openedCards[1].firstElementChild.classList.add("matched");
-                  matchedCards.push(...openedCards);
-                  openedCards = [];
-               }, 700);
-           }
-        else {
-               setTimeout(function() {
-                   openedCards[0].classList.remove("flip");
-                   openedCards[1].classList.remove("flip");
-                   openedCards = [];
-               }, 900);
-           }
+                openedCards[0].firstElementChild.classList.add("matched");
+                openedCards[1].firstElementChild.classList.add("matched");
+                matchedCards.push(...openedCards);
+                openedCards = [];
+            }, 500);
+        } else {
+            setTimeout(function() {
+                openedCards[0].classList.remove("flip");
+                openedCards[1].classList.remove("flip");
+                openedCards = [];
+            }, 700);
+        }
     }
 }
