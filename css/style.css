@@ -121,7 +121,8 @@ header {
     cursor: pointer;
 }
 
-.card-image, .card-front {
+.card-image,
+.card-front {
     position: absolute;
     top: 0;
     left: 0;
@@ -139,21 +140,22 @@ header {
 }
 
 .flip {
-    transform: rotateY(180deg);  
-    pointer-events: none; 
-}
-
-.stop-clicks{
+    transform: rotateY(180deg);
     pointer-events: none;
 }
 
-.matched{
-    background-color: rgb(5, 190, 250);
+.stop-clicks {
+    pointer-events: none;
+}
+
+.matched {
+    background-color: #5acea3;
 }
 
 .remove-star {
     visibility: hidden;
 }
+
 
 /* Victory Section*/
 
