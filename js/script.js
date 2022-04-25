@@ -148,7 +148,9 @@ function checkForMatch(card) {
 // Resetting the game
 const resetGame = document.querySelector(".refresh");
 
-resetGame.addEventListener("click", function() {
+resetGame.addEventListener("click", reset);
+
+function reset() {
     // reset moves
     moves = 0;
     movesCount.innerText = moves;
@@ -175,7 +177,7 @@ resetGame.addEventListener("click", function() {
         cards[i].firstElementChild.classList.remove("matched");
     }
     createImageGrid();
-});
+};
 
 //victory Screen
 const gradeMoves = document.querySelector(".moves-result");
@@ -196,6 +198,8 @@ function victory() {
 
 //To Replay the game after winning
 const replayGame = document.querySelector(".replay-button");
-replayGame.addEventListener("click", function() {
-    location.reload();
+replayGame.addEventListener("click", () => {
+    victoryScreen.classList.add("hidden");
+    gameSCreen.classList.remove("hidden");
+    reset();
 });
