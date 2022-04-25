@@ -8,7 +8,6 @@
 body {
     text-align: center;
     background: url(/img/background.png);
-    overflow-y: hidden;
 }
 
 
@@ -60,8 +59,8 @@ button:hover {
 }
 
 .game-screen {
-    height: 100vh;
-    width: 550px;
+    height: 100%;
+    width: 580px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -93,6 +92,10 @@ header {
     width: 25px;
 }
 
+.rating-icon {
+    margin-top: 10px;
+}
+
 .refresh {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -101,7 +104,7 @@ header {
 }
 
 .game-board {
-    height: calc(100vh - 210px);
+    height: 60vh;
     background: linear-gradient(160deg, #5acea3, #5ff0fa, #e6f750);
     border-radius: 10px;
     box-shadow: 5px 5px 15px 2px silver;
@@ -113,8 +116,8 @@ header {
 }
 
 .card {
-    width: calc(550px / 4.8);
-    height: calc((100vh - 200px) / 4.8);
+    width: calc(580px / 4.8);
+    height: 120px;
     transition: transform 1s;
     position: relative;
     transform-style: preserve-3d;
@@ -139,6 +142,10 @@ header {
     transform: rotateY(180deg);
 }
 
+.card-revert {
+    background: rgb(5, 180, 180);
+}
+
 .flip {
     transform: rotateY(180deg);
     pointer-events: none;
@@ -149,7 +156,7 @@ header {
 }
 
 .matched {
-    background-color: #5acea3;
+    background-color: rgb(160, 253, 137);
 }
 
 .remove-star {
@@ -181,4 +188,24 @@ header {
 
 .replay {
     padding-top: 40px;
+}
+
+
+/* Media Querries */
+
+@media only screen and (max-width: 650px) {
+    .header-container {
+        font-size: 15px;
+    }
+    .rating-icon,
+    .refresh-icon {
+        width: 20px;
+    }
+    .game-screen {
+        width: 400px;
+    }
+    .card {
+        width: calc(400px / 4.8);
+        height: 120px;
+    }
 }
