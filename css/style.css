@@ -62,7 +62,7 @@ button:hover {
     height: 100%;
     width: 50%;
     max-width: 670px;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -209,9 +209,11 @@ header {
 @media screen and (max-width: 650px) {
     .game-screen {
         width: 90%;
+        height: calc(100vw / 1.4);
     }
     .card {
         width: 108px;
+        height: calc(100vw / 7.5);
     }
 }
 
