@@ -60,7 +60,9 @@ button:hover {
 
 .game-screen {
     height: 100%;
-    width: 580px;
+    width: 50%;
+    max-width: 670px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -89,7 +91,7 @@ header {
 
 .rating-icon,
 .refresh-icon {
-    width: 25px;
+    width: 20px;
 }
 
 .rating-icon {
@@ -104,7 +106,7 @@ header {
 }
 
 .game-board {
-    height: 60vh;
+    height: 100%;
     background: linear-gradient(160deg, #5acea3, #5ff0fa, #e6f750);
     border-radius: 10px;
     box-shadow: 5px 5px 15px 2px silver;
@@ -112,12 +114,14 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .card {
-    width: calc(580px / 4.8);
-    height: 120px;
+    width: 140px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
     transition: transform 1s;
     position: relative;
     transform-style: preserve-3d;
@@ -169,7 +173,7 @@ header {
 .victory-screen {
     background: white;
     width: 90%;
-    margin-top: 60px;
+    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
@@ -193,19 +197,81 @@ header {
 
 /* Media Querries */
 
-@media only screen and (max-width: 650px) {
-    .header-container {
-        font-size: 15px;
+@media screen and (max-width: 1240px) {
+    .game-screen {
+        width: 90%;
+    }
+    .card {
+        width: 130px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .game-screen {
+        width: 90%;
+    }
+    .card {
+        width: 108px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card {
+        width: 89px;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .card {
+        width: 80.5px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .card {
+        width: 65px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .card {
+        width: 54.8px;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .count-text,
+    .time-text {
+        font-size: medium;
     }
     .rating-icon,
     .refresh-icon {
-        width: 20px;
-    }
-    .game-screen {
-        width: 400px;
+        width: 18px;
     }
     .card {
-        width: calc(400px / 4.8);
-        height: 120px;
+        width: 41.9px;
+    }
+}
+
+@media screen and (max-width: 252px) {
+    .game-screen {
+        width: 80%;
+    }
+    .game-board {
+        margin-top: -10px;
+    }
+    .count-text,
+    .time-text {
+        font-size: small;
+    }
+    .rating-icon,
+    .refresh-icon {
+        width: 15px;
+    }
+    header {
+        font-size: 12px;
+    }
+    .card {
+        width: 30px;
     }
 }
